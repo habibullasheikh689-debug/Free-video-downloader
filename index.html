@@ -3,180 +3,124 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101827">
-<title>Free Video Downloader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>Free Video Downloader 3.0</title>
 
 <style>
 :root {
-  --bg:#f3f5ff;
-  --card:#ffffff;
+  --bg:#f2f4ff;
+  --card:#fff;
   --text:#172033;
-  --muted:#68748a;
-  --primary:#635bff;
-  --border:#e5e7ef;
+  --muted:#64748b;
+  --border:#e0e5f0;
 }
-
 body.dark {
   --bg:#0d1424;
   --card:#172238;
-  --text:#ffffff;
-  --muted:#b6c0d2;
-  --border:#2b3850;
+  --text:#fff;
+  --muted:#b7c3d8;
+  --border:#344158;
 }
-
-* { box-sizing:border-box; }
-
+* {box-sizing:border-box}
 body {
   margin:0;
   font-family:Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
-  transition:.3s;
 }
-
 header {
-  padding:22px 16px;
-  background:linear-gradient(120deg,#242b70,#7157e8);
-  color:white;
+  padding:25px 12px;
   text-align:center;
+  color:white;
+  background:linear-gradient(120deg,#292b78,#9650ef);
 }
-
-header h1 {
-  margin:0;
-  font-size:26px;
-}
-
-header p {
-  margin-bottom:0;
-  opacity:.85;
-}
-
-.top {
-  max-width:650px;
-  margin:15px auto;
-  padding:0 15px;
-  text-align:right;
-}
-
-.theme {
-  padding:10px 15px;
+header h1 {margin:0;font-size:26px}
+header p {margin-bottom:0}
+main {max-width:650px;margin:25px auto;padding:15px}
+.top {text-align:right;margin:15px}
+.card {
+  padding:24px;
   border:1px solid var(--border);
   border-radius:20px;
+  background:var(--card);
+  box-shadow:0 10px 30px #0000000c;
+  margin-bottom:20px;
+}
+h2 {text-align:center}
+.muted {color:var(--muted);font-size:14px;line-height:1.6}
+button,.button {
+  border:0;
+  border-radius:11px;
+  padding:14px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:15px;
+}
+.theme {
   background:var(--card);
   color:var(--text);
-}
-
-main {
-  max-width:650px;
-  margin:25px auto;
-  padding:15px;
-}
-
-.card {
-  background:var(--card);
   border:1px solid var(--border);
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 10px 35px #11182712;
 }
-
-h2 { text-align:center; }
-
-.platforms {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin:25px 0;
-}
-
-.platform {
-  text-align:center;
-  padding:15px 5px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  font-weight:bold;
-  font-size:13px;
-}
-
-.platform span {
-  display:block;
-  font-size:24px;
-  margin-bottom:8px;
-}
-
-label {
-  display:block;
-  margin-bottom:10px;
-  font-weight:bold;
-}
-
-input {
+.primary {
   width:100%;
-  padding:16px;
+  color:white;
+  background:linear-gradient(120deg,#625bff,#a044f5);
+  margin-top:12px;
+}
+input[type=url] {
+  width:100%;
+  padding:15px;
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:11px;
   background:var(--bg);
   color:var(--text);
   font-size:15px;
 }
-
-button {
+.filebox {
+  display:block;
+  padding:18px;
+  border:2px dashed #8b82ed;
+  border-radius:13px;
+  text-align:center;
+  background:var(--bg);
   cursor:pointer;
-  font-weight:bold;
+  line-height:1.7;
 }
-
-.primary {
-  width:100%;
-  padding:16px;
-  margin-top:15px;
-  border:0;
-  border-radius:12px;
-  background:linear-gradient(120deg,#635bff,#a14cff);
-  color:white;
-  font-size:16px;
-}
-
-#result {
-  margin-top:20px;
-  line-height:1.6;
-  overflow-wrap:anywhere;
-}
-
+.filebox input {max-width:100%}
 video {
   width:100%;
-  max-height:350px;
+  max-height:360px;
   margin-top:15px;
   border-radius:12px;
   background:#000;
 }
-
-.download {
+.message {
+  margin-top:15px;
+  padding:13px;
+  border-radius:10px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  overflow-wrap:anywhere;
+  line-height:1.5;
+}
+.save {
   display:block;
-  padding:14px;
   text-align:center;
+  padding:14px;
   margin-top:12px;
-  border-radius:12px;
-  background:#16a36a;
+  border-radius:10px;
+  background:#159b65;
   color:white;
   text-decoration:none;
   font-weight:bold;
 }
-
-.message {
-  padding:14px;
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:12px;
-}
-
 footer {
   text-align:center;
-  padding:30px 15px;
   color:var(--muted);
+  padding:25px;
   font-size:13px;
 }
-
 </style>
 </head>
 
@@ -184,7 +128,7 @@ footer {
 
 <header>
   <h1>▶ Free Video Downloader</h1>
-  <p>Your Free Video Tools</p>
+  <p>Your Free Video Tools 3.0</p>
 </header>
 
 <div class="top">
@@ -194,46 +138,54 @@ footer {
 </div>
 
 <main>
-  <div class="card">
 
-    <h2>Download Your Videos</h2>
+<!-- UPLOAD SECTION -->
 
-    <p style="text-align:center;color:var(--muted)">
-      Simple • Free • Mobile Friendly
-    </p>
+<section class="card">
+  <h2>📁 Upload Your Video</h2>
+  <p class="muted">
+    Select your own video from your Android Gallery.
+  </p>
 
-    <div class="platforms">
-      <div class="platform">
-        <span>▶</span>YouTube
-      </div>
-      <div class="platform">
-        <span>f</span>Facebook
-      </div>
-      <div class="platform">
-        <span>◎</span>Instagram
-      </div>
-    </div>
-
-    <label for="videoURL">Paste video URL</label>
-
+  <label class="filebox">
+    📂 Choose Video From Gallery
+    <br>
     <input
-      id="videoURL"
-      type="url"
-      placeholder="https://example.com/video.mp4"
+      type="file"
+      id="videoFile"
+      accept="video/mp4,video/webm,video/ogg,video/quicktime"
     >
+  </label>
 
-    <button class="primary" onclick="checkVideo()">
-      Continue →
-    </button>
+  <div id="uploadResult"></div>
+</section>
 
-    <div id="result"></div>
+<!-- URL SECTION -->
 
-  </div>
+<section class="card">
+  <h2>🔗 Direct Video URL</h2>
+  <p class="muted">
+    Paste a direct MP4 or WebM video-file link.
+  </p>
+
+  <input
+    type="url"
+    id="videoURL"
+    placeholder="https://example.com/video.mp4"
+  >
+
+  <button class="primary" onclick="checkURL()">
+    Check Video →
+  </button>
+
+  <div id="urlResult"></div>
+</section>
+
 </main>
 
 <footer>
-  <p>Free Video Downloader © 2026</p>
-  <p>Only save videos you own or have permission to download.</p>
+  Free Video Downloader © 2026
+  <p>Only save videos you own or have permission to use.</p>
 </footer>
 
 <script>
@@ -241,91 +193,164 @@ footer {
 function toggleTheme() {
   document.body.classList.toggle("dark");
 
-  const button = document.querySelector(".theme");
-
-  button.textContent =
+  document.querySelector(".theme").textContent =
     document.body.classList.contains("dark")
     ? "☀️ Light Mode"
     : "🌙 Dark Mode";
 }
 
-function checkVideo() {
+// LOCAL VIDEO UPLOAD
 
-  const input = document.getElementById("videoURL");
-  const result = document.getElementById("result");
+let localURL = null;
 
-  result.replaceChildren();
+document.getElementById("videoFile")
+.addEventListener("change", function() {
 
-  const raw = input.value.trim();
+  const file = this.files[0];
+  const box = document.getElementById("uploadResult");
 
-  if (!raw) {
-    result.textContent = "Please paste a video URL.";
+  box.replaceChildren();
+
+  if (!file) return;
+
+  if (!file.type.startsWith("video/")) {
+    box.textContent = "Please select a video file.";
     return;
   }
+
+  if (file.size > 200 * 1024 * 1024) {
+    box.textContent =
+      "File is larger than 200 MB. Please select a smaller video.";
+    this.value = "";
+    return;
+  }
+
+  if (localURL) URL.revokeObjectURL(localURL);
+
+  localURL = URL.createObjectURL(file);
+
+  const title = document.createElement("p");
+  title.className = "message";
+  title.textContent =
+    "Selected: " + file.name +
+    " (" + (file.size / 1048576).toFixed(2) + " MB)";
+
+  const player = document.createElement("video");
+  player.src = localURL;
+  player.controls = true;
+  player.playsInline = true;
+
+  const save = document.createElement("a");
+  save.href = localURL;
+  save.download = file.name;
+  save.className = "save";
+  save.textContent = "⬇ Save My Video";
+
+  box.append(title, player, save);
+});
+
+// DIRECT VIDEO URL
+
+async function checkURL() {
+
+  const raw = document.getElementById("videoURL").value.trim();
+  const box = document.getElementById("urlResult");
+
+  box.replaceChildren();
 
   let url;
 
   try {
     url = new URL(raw);
   } catch {
-    result.textContent = "Please enter a valid URL.";
+    box.textContent = "Please enter a valid video URL.";
     return;
   }
 
   if (!["https:", "http:"].includes(url.protocol)) {
-    result.textContent = "Invalid video URL.";
+    box.textContent = "Please use a valid HTTP or HTTPS link.";
     return;
   }
 
-  const isDirect =
-    /\.(mp4|webm|ogg|mov)$/i.test(url.pathname);
-
-  if (!isDirect) {
-
-    const message = document.createElement("div");
-    message.className = "message";
-    message.textContent =
-      "This is not a direct video file. Open the original platform and use its official download option where available.";
-
-    const link = document.createElement("a");
-    link.href = url.href;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = "Open Original Video";
-    link.style.display = "block";
-    link.style.marginTop = "12px";
-
-    result.append(message, link);
+  if (!/\.(mp4|webm|ogg|mov)$/i.test(url.pathname)) {
+    box.textContent =
+      "This is not a direct video file. Social platform links cannot be extracted here.";
     return;
   }
 
-  const message = document.createElement("div");
-  message.className = "message";
-  message.textContent = "Video link detected! Preview below:";
+  const note = document.createElement("div");
+  note.className = "message";
+  note.textContent = "Loading video preview...";
+  box.append(note);
 
   const player = document.createElement("video");
-  player.src = url.href;
   player.controls = true;
   player.playsInline = true;
-  player.preload = "metadata";
-
-  const download = document.createElement("a");
-  download.href = url.href;
-  download.download = "";
-  download.className = "download";
-  download.textContent = "⬇ Save / Download Video";
-
-  result.append(message, player, download);
+  player.src = url.href;
+  box.append(player);
 
   player.addEventListener("error", () => {
-    message.textContent =
-      "This video host does not allow browser preview.";
+    note.textContent =
+      "Preview unavailable. The video host may block browser access.";
   }, {once:true});
 
+  const save = document.createElement("button");
+  save.className = "primary";
+  save.textContent = "⬇ Download Video";
+  box.append(save);
+
+  save.addEventListener("click", async () => {
+
+    save.disabled = true;
+    save.textContent = "Preparing download...";
+
+    try {
+      const response = await fetch(url.href);
+
+      if (!response.ok) throw new Error();
+
+      const blob = await response.blob();
+
+      if (!blob.type.startsWith("video/") &&
+          !/\.(mp4|webm|ogg|mov)$/i.test(url.pathname)) {
+        throw new Error();
+      }
+
+      const blobURL = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = blobURL;
+      link.download = url.pathname.split("/").pop() || "video.mp4";
+
+      document.body.append(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(blobURL), 60000);
+
+      save.textContent = "Download started!";
+
+    } catch {
+      save.disabled = false;
+      save.textContent = "Open Video to Save";
+
+      const link = document.createElement("a");
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.className = "save";
+      link.textContent = "Open Direct Video Link";
+      box.append(link);
+
+      note.textContent =
+        "The host blocked direct downloading (possibly CORS). Try opening the video link. Download availability depends on the host.";
+    }
+
+  });
 }
 
 </script>
 
 </body>
-        </html>
-                 
+    </html>
+  
