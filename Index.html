@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Video Downloader</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f5fa;
+  color: #172033;
+}
+
+header {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 28px 12px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 27px;
+}
+
+main {
+  max-width: 500px;
+  margin: 35px auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px #00000010;
+}
+
+h2 {
+  text-align: center;
+}
+
+.platforms {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: #2563eb;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #666;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Free Video Downloader</h1>
+  <p>Your Free Video Tools</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Video Tools</h2>
+    <p style="text-align:center">
+      YouTube | Facebook | Instagram
+    </p>
+
+    <div class="platforms">
+      <span>▶ YouTube</span>
+      <span>f Facebook</span>
+      <span>◎ Instagram</span>
+    </div>
+
+    <input
+      type="url"
+      id="videoURL"
+      placeholder="Paste your authorized video URL"
+    >
+
+    <button onclick="checkVideo()">
+      Continue
+    </button>
+
+    <div id="result"></div>
+  </div>
+</main>
+
+<footer>
+  Free Video Downloader © 2026
+  <p>Only download content you own or have permission to download.</p>
+</footer>
+
+<script>
+function checkVideo() {
+  const url = document.getElementById("videoURL").value.trim();
+  const result = document.getElementById("result");
+
+  try {
+    const video = new URL(url);
+
+    if (video.protocol !== "https:" &&
+        video.protocol !== "http:") {
+      throw new Error();
+    }
+
+    result.innerHTML = `
+      <p>Link received successfully!</p>
+      <a href="${video.href}"
+         target="_blank"
+         rel="noopener noreferrer">
+         Open video link
+      </a>
+      <p>Direct downloadable video files may be saved
+      using the browser's download option.
+      Platform links will open their original page.</p>
+    `;
+  } catch (error) {
+    result.textContent = "Please enter a valid video URL.";
+  }
+}
+</script>
+
+</body>
+  </html>
+  
